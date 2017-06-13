@@ -1,18 +1,21 @@
 # depslib dependency file v1.0
-1497334791 source:/home/jose/Documents/SFML/monopolio/main.cpp
+1497335607 source:/home/jose/Documents/SFML/monopolio/main.cpp
 	<iostream>
 	<time.h>
 	<stdlib.h>
 	"casillero.h"
 	"jugadores.h"
+	"parada.h"
 	"dado.h"
 	"funcionesprincipales.h"
 
-1497332323 /home/jose/Documents/SFML/monopolio/jugadores.h
+1497335739 /home/jose/Documents/SFML/monopolio/jugadores.h
 
 1497334747 /home/jose/Documents/SFML/monopolio/dado.h
 
 1497332157 /home/jose/Documents/SFML/monopolio/casillero.h
 
-1497334901 /home/jose/Documents/SFML/monopolio/funcionesprincipales.h
+1497335731 /home/jose/Documents/SFML/monopolio/funcionesprincipales.h
+
+1497335687 /home/jose/Documents/SFML/monopolio/parada.h
 

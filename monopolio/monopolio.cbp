@@ -34,6 +34,7 @@
 		</Compiler>
 		<Unit filename="casillero.h" />
 		<Unit filename="dado.h" />
+		<Unit filename="funcionesprincipales.h" />
 		<Unit filename="jugadores.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="parada.h" />

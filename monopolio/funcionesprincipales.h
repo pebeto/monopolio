@@ -3,7 +3,11 @@
 
 void mover(jugador *g, casillero _juego[]){
     int movimientos=dado();
-
+    if(movimientos==-1){
+        carcel(g->posicion);
+        g->carcel=true;
+        g->contadorCarcel++;
+    }
 }
 
 

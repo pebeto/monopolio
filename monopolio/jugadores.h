@@ -8,7 +8,7 @@ struct jugador{
     string nombre;
     int color;
     bool carcel;
-    int contadorCarcel;
+    int contadorCarcel=0;
     int posicion;
 };
 

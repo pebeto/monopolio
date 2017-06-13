@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "casillero.h"
 #include "jugadores.h"
+#include "parada.h"
 #include "dado.h"
 #include "funcionesprincipales.h"
 using namespace std;
