@@ -2,15 +2,23 @@
 #define DADO_H_INCLUDED
 
 int dado(){
-    int casillasamover, intentos=0;
-    int _valordado= rand()%(7-1);
-    int _valordado1= rand()&(7-1);
-    while(_valordado==_valordado1){
-        _valordado= rand()%(7-1);
-        _valordado1= rand()%(7-1);
-        intentos++;
+    int casillasamover=0, intentos=0;
+    int _valordado= rand()%6+1;
+    int _valordado1= rand()%6+1;
+    if(_valordado==_valordado1){
+        while(_valordado==_valordado1){
+            cout<<"Doble "<<_valordado<<": "<<endl;
+            casillasamover+=_valordado+_valordado1;
+            _valordado= rand()%(6+1);
+            _valordado1= rand()%(6+1);
+            intentos++;
+        }
     }
-    casillasamover=_valordado+_valordado1;
+    else{
+        cout<<"Dado 1: "<<_valordado<<endl;
+        cout<<"Dado 2: "<<_valordado1<<endl;
+        casillasamover=_valordado+_valordado1;
+    }
     if(intentos>=3){
         casillasamover=-1;
     }
