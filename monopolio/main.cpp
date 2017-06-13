@@ -1,32 +1,25 @@
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
+#include <fstream>
 #include "casillero.h"
 #include "jugadores.h"
-#include "parada.h"
 #include "dado.h"
+#include "parada.h"
 #include "funcionesprincipales.h"
 using namespace std;
 
-
-
 int main(){
-    int nJugadores;
+    //VARIABLES PRINCIPALES
+    int * const nJugadores=new int;
     casillero juego[39];
     srand(time(NULL));
-    cout<<dado()<<endl;
-    cout<<dado()<<endl;
-    cout<<dado();
-   
-    while(true){
-    do{
-        cout<<"Ingresa el número de Jugadores: "<<endl;
-        cin>>nJugadores;
-    }while(nJugadores<=1 || nJugadores>6);
-    jugador *nJug=new jugador[nJugadores];
 
-    system("clear");
+    //GAME LOOP
+    while(true){
+    ingresarNJug(nJugadores);
+    jugador * const players=new jugador[*nJugadores];
+    ingresarDatosJug(nJugadores,players);
     }
- 
     return 0;
 }
