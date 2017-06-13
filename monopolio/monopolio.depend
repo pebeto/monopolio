@@ -19,3 +19,23 @@
 
 1497335687 /home/jose/Documents/SFML/monopolio/parada.h
 
+1497377097 source:c:\users\sistemas\desktop\monopolio-master\monopolio\main.cpp
+	<iostream>
+	<time.h>
+	<stdlib.h>
+	"casillero.h"
+	"jugadores.h"
+	"parada.h"
+	"dado.h"
+	"funcionesprincipales.h"
+
+1497375582 c:\users\sistemas\desktop\monopolio-master\monopolio\casillero.h
+
+1497375582 c:\users\sistemas\desktop\monopolio-master\monopolio\jugadores.h
+
+1497375582 c:\users\sistemas\desktop\monopolio-master\monopolio\parada.h
+
+1497377097 c:\users\sistemas\desktop\monopolio-master\monopolio\dado.h
+
+1497375582 c:\users\sistemas\desktop\monopolio-master\monopolio\funcionesprincipales.h
+

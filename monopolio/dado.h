@@ -9,8 +9,8 @@ int dado(){
         while(_valordado==_valordado1){
             cout<<"Doble "<<_valordado<<": "<<endl;
             casillasamover+=_valordado+_valordado1;
-            _valordado= rand()%(6+1);
-            _valordado1= rand()%(6+1);
+            _valordado= rand()%6+1;
+            _valordado1= rand()%6+1;
             intentos++;
         }
     }
