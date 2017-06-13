@@ -17,7 +17,7 @@ int main(){
     cout<<dado()<<endl;
     cout<<dado()<<endl;
     cout<<dado();
-    /*
+   
     while(true){
     do{
         cout<<"Ingresa el número de Jugadores: "<<endl;
@@ -27,6 +27,6 @@ int main(){
 
     system("clear");
     }
-    */
+ 
     return 0;
 }
