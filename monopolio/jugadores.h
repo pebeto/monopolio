@@ -10,6 +10,8 @@ struct jugador{
     bool carcel;
     int contadorCarcel=0;
     int posicion;
+    int numeroCasas=0;
+    int numeroHoteles=0;
 };
 
 #endif // JUGADORES_H_INCLUDED

@@ -3,11 +3,13 @@
 using namespace std;
 
 struct casillero{
-    string nombre;
+    char nombre[100];
     int valor;
     char color;
     bool propietario;
-    int numeroPropiedades=0;
+    int numeroDelJugador;
+    int numeroCasas=0;
+    int numeroHoteles=0;
 };
 
 #endif // CASILLERO_H_INCLUDED

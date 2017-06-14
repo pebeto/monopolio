@@ -19,6 +19,11 @@ int main(){
 
     //GAME LOOP
     while(true){
+    cout<<dado();
+    cout<<endl;
+    cout<<dado();
+    cout<<endl;
+    cout<<dado();
     /*
     ingresarNJug(nJugadores);
     jugador * const players=new jugador[*nJugadores];
@@ -29,6 +34,16 @@ int main(){
         cout<<"                               "<<"Ingresa accion: ";
         cin>>accion;
     }while(accion<1 || accion>4);
+    switch(accion){
+    case 1 :
+
+    case 2 :
+
+    case 3 :
+
+    case 4 :
+        exit(0);
+    }
     system("clear");
     }
     return 0;
