@@ -12,6 +12,8 @@ struct jugador{
     int posicion;
     int numeroCasas=0;
     int numeroHoteles=0;
+    int numeroFerrocarriles=0;
+    int numeroServicios=0;
 };
 
 #endif // JUGADORES_H_INCLUDED
