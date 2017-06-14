@@ -9,6 +9,8 @@
 	"dado.h"
 	"funcionesprincipales.h"
 
+1497377097 principales.h"
+
 1497335739 /home/jose/Documents/SFML/monopolio/jugadores.h
 
 1497372890 /home/jose/Documents/SFML/monopolio/dado.h
@@ -38,4 +40,28 @@
 1497377097 c:\users\sistemas\desktop\monopolio-master\monopolio\dado.h
 
 1497375582 c:\users\sistemas\desktop\monopolio-master\monopolio\funcionesprincipales.h
+
+1497398689 source:/home/jose/Documents/SFML/monopolio-master/monopolio/main.cpp
+	<iostream>
+	<time.h>
+	<stdlib.h>
+	<fstream>
+	"casillero.h"
+	"jugadores.h"
+	"dado.h"
+	"parada.h"
+	"funcionesprincipales.h"
+	"menu.h"
+
+1497398041 /home/jose/Documents/SFML/monopolio-master/monopolio/casillero.h
+
+1497379521 /home/jose/Documents/SFML/monopolio-master/monopolio/jugadores.h
+
+1497379521 /home/jose/Documents/SFML/monopolio-master/monopolio/parada.h
+
+1497394064 /home/jose/Documents/SFML/monopolio-master/monopolio/dado.h
+
+1497396363 /home/jose/Documents/SFML/monopolio-master/monopolio/funcionesprincipales.h
+
+1497398609 /home/jose/Documents/SFML/monopolio-master/monopolio/menu.h
 

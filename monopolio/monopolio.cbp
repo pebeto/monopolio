@@ -37,6 +37,7 @@
 		<Unit filename="funcionesprincipales.h" />
 		<Unit filename="jugadores.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="menu.h" />
 		<Unit filename="parada.h" />
 		<Extensions>
 			<code_completion />

@@ -7,19 +7,29 @@
 #include "dado.h"
 #include "parada.h"
 #include "funcionesprincipales.h"
+#include "menu.h"
 using namespace std;
 
 int main(){
     //VARIABLES PRINCIPALES
+    int accion;
     int * const nJugadores=new int;
     casillero juego[39];
     srand(time(NULL));
 
     //GAME LOOP
     while(true){
+    /*
     ingresarNJug(nJugadores);
     jugador * const players=new jugador[*nJugadores];
     ingresarDatosJug(nJugadores,players);
+    */
+    dibujarmenu();
+    do{
+        cout<<"                               "<<"Ingresa accion: ";
+        cin>>accion;
+    }while(accion<1 || accion>4);
+    system("clear");
     }
     return 0;
 }

@@ -2,7 +2,7 @@
 #define DADO_H_INCLUDED
 
 int dado(){
-    int casillasamover=0, intentos=1;
+    int casillasamover=0, intentos=0;
     int _valordado= rand()%6+1;
     int _valordado1= rand()%6+1;
     if(_valordado==_valordado1){
