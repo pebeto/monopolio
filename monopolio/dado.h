@@ -18,6 +18,7 @@ int dado(){
         cout<<"Dado 1: "<<_valordado<<endl;
         cout<<"Dado 2: "<<_valordado1<<endl;
         casillasamover+=_valordado+_valordado1;
+    }
     else{
         casillasamover=-1;
     }
