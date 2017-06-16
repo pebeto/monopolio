@@ -17,9 +17,9 @@ void ingresarNJug(int *_nJugadores){
 
 void movimiento(){
 
-    _movimientos=dado();
-    posicion+=_movimientos;
-    switch(posicion){
+    int _movimientos=dado();
+    int _posicion=_posicion+_movimientos;
+    switch(_posicion){
     case 0 : //CASO GO
 
         break;
@@ -49,6 +49,7 @@ void movimiento(){
         break;
     default :
 
+        break;
     }
 }
 
