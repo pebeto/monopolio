@@ -15,4 +15,41 @@ void ingresarNJug(int *_nJugadores){
     }while(*_nJugadores<=1 || *_nJugadores>6);
 }
 
+void movimiento(){
+
+    _movimientos=dado();
+    posicion+=_movimientos;
+    switch(posicion){
+    case 0 : //CASO GO
+
+        break;
+    case 10 : //CASO CARCEL VISITA
+
+        break;
+    case 20 : //CASO PARADA LIBRE
+
+        break;
+    case 30 : //CASO CARCEL
+
+        break;
+    case -1 : //CASO CARCEL DADOS
+
+        break;
+    case 2 : case 17 : case 33 : //CASO ARCA COMUNAL
+
+        break;
+    case 7 : case 22 : case 36 : //CASO CASUALIDAD
+
+        break;
+    case 4 : //CASO IMPUESTO CARO
+
+        break;
+    case 38 : //CASO IMPUESTO BARATO
+
+        break;
+    default :
+
+    }
+}
+
 #endif // FUNCIONESPRINCIPALES_H_INCLUDED
