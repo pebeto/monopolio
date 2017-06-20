@@ -8,8 +8,8 @@ struct casillero{
     char color;
     bool propietario;
     int numeroDelJugador;
-    int numeroCasas=0;
-    int numeroHoteles=0;
+    int numeroCasas;
+    int numeroHoteles;
 };
 
 #endif // CASILLERO_H_INCLUDED
