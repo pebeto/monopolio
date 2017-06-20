@@ -11,10 +11,52 @@
 using namespace std;
 
 int main(){
+    //TABLERO & DATOS
+    casillero juego[40]={
+    ("GO!",0,'G',false,-1,0,0), //n=0 COLOR GO
+    ("AVENIDA MEDITERRANEO",60,'M',false,-1,0,0), //n=1 COLOR MARRON
+    ("ARCA COMUNAL",0,'A',false,-1,0,0), //n=2 COLOR ARCA COMUNAL
+    ("AVENIDA BALTICA",60,'M',false,-1,0,0), //n=3 COLOR MARRON
+    ("IMPUESTO SOBRE INGRESOS",0,'I',false,-1,0,0), //n=4 COLOR IMPUESTO
+    ("FERROCARRIL READING",200,'N',false,-1,0,0), //n=5 COLOR TREN
+    ("AVENIDA ORIENTAL",100,'C',false,-1,0,0), //n=6 COLOR CELESTE
+    ("CASUALIDAD",0,'Q',false,-1,0,0), //n=7 COLOR CASUALIDAD
+    ("AVENIDA VERMONT",100,'C',false,-1,0,0), //n=8 COLOR CELESTE
+    ("AVENIDA CONNECTICUT",120,'C',false,-1,0,0), //n=9 COLOR CELESTE
+    ("CARCEL",0,'K',false,-1,0,0), //n=10 COLOR CARCEL
+    ("PLAZA SAN CARLOS",140,'P',false,-1,0,0), //n=11 COLOR MORADO
+    ("COMPANIA DE ELECTRICIDAD",150,'F',false,-1,0,0), //n=12 COLOR COMPANIA
+    ("AVENIDA STATUS",140,'P',false,-1,0,0), //n=13 COLOR MORADO
+    ("AVENIDA VIRGINIA",160,'P',false,-1,0,0), //n=14 COLOR MORADO
+    ("FERROCARRIL PENNSYLVANIA",200,'N',false,-1,0,0), //n=15 COLOR TREN
+    ("PLAZA ST.JAMES",180,'O',false,-1,0,0), //n=16 COLOR NARANJA
+    ("ARCA COMUNAL",0,'A',false,-1,0,0), //n=17 COLOR ARCA COMUNAL
+    ("AVENIDA TENNESSEE",180,'O',false,-1,0,0), //n=18 COLOR NARANJA
+    ("AVENIDA NUEVA YORK",200,'O',false,-1,0,0), //n=19 COLOR NARANJA
+    ("PARADA LIBRE",0,'L',false,-1,0,0), //n=20 COLOR PARADA LIBRE
+    ("AVENIDA KENTUCKY",220,'R',false,-1,0,0), //n=21 COLOR ROJO
+    ("CASUALIDAD",0,'Q',false,-1,0,0), //n=22 COLOR CASUALIDAD
+    ("AVENIDA INDIANA",220,'R',false,-1,0,0), //n=23 COLOR ROJO
+    ("AVENIDA ILLINOIS",240,'R',false,-1,0,0), //n=24 COLOR ROJO
+    ("FERROCARRIL B. & O.",200,'N',false,-1,0,0), //n=25 COLOR TREN
+    ("AVENIDA ATLANTICO",260,'Y',false,-1,0,0), //n=26 COLOR AMARILLO
+    ("AVENIDA VENTNOR",260,'Y',false,-1,0,0), //n=27 COLOR AMARILLO
+    ("COMPANIA DE AGUA",150,'F',false,-1,0,0), //n=28 COLOR COMPANIA
+    ("JARDINES MARVIN",280,'Y',false,-1,0,0), //n=29 COLOR AMARILLO
+    ("VAYASE A LA CARCEL!",0,'K',false,-1,0,0), //n=30 COLOR CARCEL
+    ("AVENIDA PACIFICO",300,'V',false,-1,0,0), //n=31 COLOR VERDE
+    ("AVENIDA CAROLINA DEL NORTE",300,'V',false,-1,0,0), //n=32 COLOR VERDE
+    ("ARCA COMUNAL",0,'A',false,-1,0,0), //n=33 COLOR ARCA COMUNAL
+    ("AVENIDA PENNSYLVANIA",320,'V',false,-1,0,0), //n=34 COLOR VERDE
+    ("FERROCARRIL VIA RAPIDA",200,'N',false,-1,0,0), //n=35 COLOR TREN
+    ("CASUALIDAD",0,'Q',false,-1,0,0), //n=36 COLOR CASUALIDAD
+    ("PLAZA PARK",350,'B',false,-1,0,0), //n=37 COLOR AZUL
+    ("IMPUESTO SOBRE POSESIONES DE LUJO",0,'I',false,-1,0,0), //n=38 COLOR IMPUESTO
+    ("EL MUELLE",400,'B',false,-1,0,0)}; //n=39 COLOR AZUL
+
     //VARIABLES PRINCIPALES
     int accion;
     int * const nJugadores=new int;
-    casillero juego[39];
     srand(time(NULL));
 
     //GAME LOOP
