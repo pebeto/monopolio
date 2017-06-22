@@ -12,6 +12,7 @@ using namespace std;
 
 int main(){
     //TABLERO & DATOS
+    fstream tablero;
     casillero juego[40]={
     {"GO!",0,'G',false,-1,0,0}, //n=0 COLOR GO
     {"AVENIDA MEDITERRANEO",60,'M',false,-1,0,0}, //n=1 COLOR MARRON
@@ -55,6 +56,32 @@ int main(){
     {"EL MUELLE",400,'B',false,-1,0,0} //n=39 COLOR AZUL
     };
 
+    /*
+    casillero *juegos=new casillero;
+    int i=0;
+    tablero.open(".\\data\\tablero.txt", ios::out | ios::app | ios::binary);
+    if(tablero.is_open())
+        while(i<=39){
+        cout<<"CASILLERO N° "<<i+1<<endl;
+        cout<<"NOMBRE DE LA PROPIEDAD: "<<endl;
+        fflush(stdin);
+        gets(juegos->nombre);
+        cout<<"VALOR DE LA PROPIEDAD: "<<endl;
+        cin>>juegos->valor;
+        cout<<"COLOR:"<<endl;
+        cin>>juegos->color;
+        juegos->propietario=false;
+        juegos->numeroDelJugador=-1;
+        juegos->numeroCasas=0;
+        juegos->numeroHoteles=0;
+        tablero.write(reinterpret_cast<char*>(juegos),sizeof(casillero));
+        i++;
+        }
+    else
+        cout<<"no";
+
+    */
+    /*
     //VARIABLES PRINCIPALES
     int accion;
     int * const nJugadores=new int;
@@ -71,7 +98,6 @@ int main(){
     ingresarNJug(nJugadores);
     jugador * const players=new jugador[*nJugadores];
     ingresarDatosJug(nJugadores,players);
-    */
     dibujarmenu();
     do{
         cout<<"                               "<<"Ingresa accion: ";
@@ -89,5 +115,6 @@ int main(){
     }
     system("clear");
     }
+    */
     return 0;
 }
