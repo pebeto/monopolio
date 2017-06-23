@@ -62,7 +62,7 @@ int main(){
     tablero.open(".\\data\\tablero.txt", ios::out | ios::app | ios::binary);
     if(tablero.is_open())
         while(i<=39){
-        cout<<"CASILLERO N° "<<i+1<<endl;
+        cout<<"CASILLERO NÂ° "<<i+1<<endl;
         cout<<"NOMBRE DE LA PROPIEDAD: "<<endl;
         fflush(stdin);
         gets(juegos->nombre);
@@ -81,40 +81,16 @@ int main(){
         cout<<"no";
 
     */
-    /*
     //VARIABLES PRINCIPALES
     int accion;
-    int * const nJugadores=new int;
+    int *nJugadores= new int;
     srand(time(NULL));
 
     //GAME LOOP
     while(true){
-    cout<<dado();
-    cout<<endl;
-    cout<<dado();
-    cout<<endl;
-    cout<<dado();
-    /*
-    ingresarNJug(nJugadores);
-    jugador * const players=new jugador[*nJugadores];
-    ingresarDatosJug(nJugadores,players);
-    dibujarmenu();
-    do{
-        cout<<"                               "<<"Ingresa accion: ";
-        cin>>accion;
-    }while(accion<1 || accion>4);
-    switch(accion){
-    case 1 :
+        *nJugadores=2;
+        jugador *players= new jugador[*nJugadores];
 
-    case 2 :
-
-    case 3 :
-
-    case 4 :
-        exit(0);
     }
-    system("clear");
-    }
-    */
     return 0;
 }
