@@ -10,6 +10,7 @@ struct jugador{
     bool carcel;
     int contadorCarcel=0;
     int posicion;
+    int nvueltas=0;
     bool posesiones[40];
     int numeroCasas=0;
     int numeroHoteles=0;
