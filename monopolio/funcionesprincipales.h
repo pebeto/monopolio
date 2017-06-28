@@ -21,13 +21,30 @@ void inicioPartida(int *_nJugadores, jugador *_players){
     ingresarDatosJug(_nJugadores, _players);
 }
 
-void mover(jugador *_players, casillero *_juego, int nJugador){
+void mensajeCarcel(){
+    cout<<"Estas en la carcel! >:("<<endl;
+}
+
+void mover(jugador *_players, casillero *_juego,int *_nJugadores, int nJugador){
     int cantidadDeMovimientos=dado();
-    (*(_players+nJugador)).posicion+=cantidadDeMovimientos;
-    if((*(_players+nJugador)).posicion>=40){
-        (*(_players+nJugador)).posicion-=40;
-        (*(_players+nJugador)).nvueltas++;
-        (*(_players+nJugador)).dinero+=200;
+    if((*(_players+nJugador)).carcel==false){
+        (*(_players+nJugador)).posicion+=cantidadDeMovimientos;
+        if((*(_players+nJugador)).posicion>=40){
+            (*(_players+nJugador)).posicion-=40;
+            (*(_players+nJugador)).nvueltas++;
+            (*(_players+nJugador)).dinero+=200;
+        }
+        for(int i=0; i<*_nJugadores; i++){
+            if((*(_players+i)).carcel==true){
+                if((*(_players+i)).contadorCarcel==3){
+                    (*(_players+i)).carcel=false;
+                    (*(_players+i)).contadorCarcel==0;
+                }
+                else{
+                    (*(_players+i)).contadorCarcel++;
+                }
+            }
+        }
     }
     switch((*(_players+nJugador)).posicion){
     case 10 : case 20 ://CASO CARCEL VISITA && PARADA LIBRE
@@ -72,7 +89,7 @@ void salir(){
 void turno(jugador *_players, casillero *_juego, int *_nJugadores){
     int nJugador=0;
     while(nJugador<*_nJugadores){
-
+        mover(_players,_juego,_nJugadores,nJugador);
         nJugador++;
         if(nJugador==*_nJugadores)
             nJugador=0;
