@@ -81,16 +81,16 @@ int main(){
         cout<<"no";
 
     */
+
     //VARIABLES PRINCIPALES
-    int accion;
     int *nJugadores= new int;
     srand(time(NULL));
 
     //GAME LOOP
     while(true){
         *nJugadores=2;
-        jugador *players= new jugador[*nJugadores];
-
+        jugador *players= new jugador[2];
+        turno(players,juego,nJugadores);
     }
     return 0;
 }
