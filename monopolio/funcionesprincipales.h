@@ -21,6 +21,19 @@ void inicioPartida(int *_nJugadores, jugador *_players){
     ingresarDatosJug(_nJugadores, _players);
 }
 
+void comprarLugar(jugador *_players, casillero *_juego, int *nJugadores, int nJugador){
+    fstream _tablero;
+    _tablero.open(".\\data\\tablero.txt", ios::out | ios::in | ios::app | ios::binary);
+    if(_tablero.is_open()){
+
+    }
+    else{
+        cerr<<"NO SE ENCONTRO EL ARCHIVO: tablero.txt"<<endl;
+        cin.get();
+        exit(0);
+    }
+}
+
 void menuTurno(jugador *_players, int _nJugador){
     int _opcion;
     cout<<"Opciones de casillero: "<<endl;
@@ -50,18 +63,14 @@ void menuTurno(jugador *_players, int _nJugador){
     }
 }
 
-void comprarLugar(jugador *_players, casillero *_juego, int *nJugadores, int nJugador){
-
-}
-
-void mover(jugador *_players, casillero *_juego,int *_nJugadores, int nJugador){
+void mover(jugador *_players, casillero *_juego,int *_nJugadores, int _nJugador){
     int cantidadDeMovimientos=dado();
-    if((*(_players+nJugador)).carcel==false){
-        (*(_players+nJugador)).posicion+=cantidadDeMovimientos;
-        if((*(_players+nJugador)).posicion>=40){
-            (*(_players+nJugador)).posicion-=40;
-            (*(_players+nJugador)).nvueltas++;
-            (*(_players+nJugador)).dinero+=200;
+    if((*(_players+_nJugador)).carcel==false){
+        (*(_players+_nJugador)).posicion+=cantidadDeMovimientos;
+        if((*(_players+_nJugador)).posicion>=40){
+            (*(_players+_nJugador)).posicion-=40;
+            (*(_players+_nJugador)).nvueltas++;
+            (*(_players+_nJugador)).dinero+=200;
         }
         for(int i=0; i<*_nJugadores; i++){
             if((*(_players+i)).carcel==true){
@@ -75,9 +84,9 @@ void mover(jugador *_players, casillero *_juego,int *_nJugadores, int nJugador){
             }
         }
     }
-    switch((*(_players+nJugador)).posicion){
+    switch((*(_players+_nJugador)).posicion){
     case 10 : //CASO CARCEL VISITA
-        if(!(*(_players+nJugador)).carcel){
+        if(!(*(_players+_nJugador)).carcel){
             cout<<"Estas de visita, no te preocupes :)"<<endl;
             cin.get();
         }
@@ -91,8 +100,8 @@ void mover(jugador *_players, casillero *_juego,int *_nJugadores, int nJugador){
         cin.get();
         break;
     case 30 : case -1: //CASO CARCEL
-        (*(_players+nJugador)).carcel=true;
-        (*(_players+nJugador)).posicion=10;
+        (*(_players+_nJugador)).carcel=true;
+        (*(_players+_nJugador)).posicion=10;
         cout<<"CAISTE EN LA CARCEL >:("<<endl;
         cin.get();
         break;
@@ -103,28 +112,20 @@ void mover(jugador *_players, casillero *_juego,int *_nJugadores, int nJugador){
 
         break;
     case 4 : //CASO IMPUESTO CARO
-        (*(_players+nJugador)).dinero-=200;
+        (*(_players+_nJugador)).dinero-=200;
         cout<<"ACABAS DE PAGAR $200 EN IMPUESTOS."<<endl;
         cin.get();
         break;
     case 38 : //CASO IMPUESTO BARATO
-        (*(_players+nJugador)).dinero-=75;
+        (*(_players+_nJugador)).dinero-=75;
         cout<<"ACABAS DE PAGAR $75 EN IMPUESTOS."<<endl;
         cin.get();
         break;
     default :
         int _opcion;
-        cout<<"Opciones de casillero: "<<endl;
-        if((*(_players+nJugador)).nvueltas!=0){
-            cout<<"1. COMPRAR LUGAR."<<endl;
-            cout<<"2. SUBASTAR LUGAR."<<endl;
-            if((*(_players+nJugador)).posesiones[(*(_players+nJugador)).posicion])
-                cout<<"3. VENDER LUGAR."<<endl;
-            cout<<"4. SALTAR TURNO."<<endl;
-            do{
-            cout<<"OPCION: ";cin>>_opcion;
-            }while(_opcion>4 || _opcion<=0);
-        }
+        cout<<"Posicion del jugador N°"<<_nJugador+1<<": "<<(*(_players+_nJugador)).posicion+1<<endl;
+        cout<<"Numero de vueltas del jugador N°"<<_nJugador+1<<": "<<(*(_players+_nJugador)).nvueltas<<endl;
+        menuTurno(_players,_nJugador);
         break;
     }
 }
