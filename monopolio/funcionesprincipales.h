@@ -21,8 +21,37 @@ void inicioPartida(int *_nJugadores, jugador *_players){
     ingresarDatosJug(_nJugadores, _players);
 }
 
-void mensajeCarcel(){
-    cout<<"Estas en la carcel! >:("<<endl;
+void menuTurno(jugador *_players, int _nJugador){
+    int _opcion;
+    cout<<"Opciones de casillero: "<<endl;
+    if((*(_players+_nJugador)).nvueltas==0){
+        cout<<"Es la primera vuelta :)"<<endl;
+        cin.get();
+    }
+    else{
+        cout<<"1. COMPRAR LUGAR."<<endl;
+        cout<<"2. SUBASTAR LUGAR."<<endl;
+        if((*(_players+_nJugador)).posesiones[(*(_players+_nJugador)).posicion])
+            cout<<"3. VENDER LUGAR."<<endl;
+        cout<<"4. SALTAR TURNO."<<endl;
+        do{
+        cout<<"OPCION: ";cin>>_opcion;
+        }while(_opcion<1 || _opcion>5);
+        switch(_opcion){
+        case 1 :
+            break;
+        case 2 :
+            break;
+        case 3 :
+            break;
+        case 4 :
+            break;
+        }
+    }
+}
+
+void comprarLugar(jugador *_players, casillero *_juego, int *nJugadores, int nJugador){
+
 }
 
 void mover(jugador *_players, casillero *_juego,int *_nJugadores, int nJugador){
@@ -47,11 +76,25 @@ void mover(jugador *_players, casillero *_juego,int *_nJugadores, int nJugador){
         }
     }
     switch((*(_players+nJugador)).posicion){
-    case 10 : case 20 ://CASO CARCEL VISITA && PARADA LIBRE
+    case 10 : //CASO CARCEL VISITA
+        if(!(*(_players+nJugador)).carcel){
+            cout<<"Estas de visita, no te preocupes :)"<<endl;
+            cin.get();
+        }
+        else{
+            cout<<"ESTAS EN LA CARCEL POR 3 TURNOS."<<endl;
+            cin.get();
+        }
+        break;
+    case 20 : //PARADA LIBRE
+        cout<<"PARADA LIBRE"<<endl;
+        cin.get();
         break;
     case 30 : case -1: //CASO CARCEL
         (*(_players+nJugador)).carcel=true;
         (*(_players+nJugador)).posicion=10;
+        cout<<"CAISTE EN LA CARCEL >:("<<endl;
+        cin.get();
         break;
     case 2 : case 17 : case 33 : //CASO ARCA COMUNAL
 
@@ -61,9 +104,13 @@ void mover(jugador *_players, casillero *_juego,int *_nJugadores, int nJugador){
         break;
     case 4 : //CASO IMPUESTO CARO
         (*(_players+nJugador)).dinero-=200;
+        cout<<"ACABAS DE PAGAR $200 EN IMPUESTOS."<<endl;
+        cin.get();
         break;
     case 38 : //CASO IMPUESTO BARATO
         (*(_players+nJugador)).dinero-=75;
+        cout<<"ACABAS DE PAGAR $75 EN IMPUESTOS."<<endl;
+        cin.get();
         break;
     default :
         int _opcion;
@@ -82,13 +129,11 @@ void mover(jugador *_players, casillero *_juego,int *_nJugadores, int nJugador){
     }
 }
 
-void salir(){
-    exit(0);
-}
-
 void turno(jugador *_players, casillero *_juego, int *_nJugadores){
     int nJugador=0;
     while(nJugador<*_nJugadores){
+        system("clear");
+        cout<<"TURNO DEL JUGADOR"<<nJugador+1<<endl;
         mover(_players,_juego,_nJugadores,nJugador);
         nJugador++;
         if(nJugador==*_nJugadores)
