@@ -85,7 +85,23 @@ int main(){
     //VARIABLES PRINCIPALES
     int *nJugadores= new int;
     srand(time(NULL));
+    /*
+    casillero *aux=new casillero;
 
+    tablero.open(".\\data\\tableroMOD.txt", ios::out | ios::in | ios::binary);
+    tablero.read(reinterpret_cast<char*>(aux),sizeof(casillero));
+    if(tablero.is_open()){
+        for(int i=0; i<39; i++){
+            cout<<aux->color<<endl;
+            cout<<aux->nombre<<endl;
+            cout<<aux->numeroCasas<<endl;
+            tablero.read(reinterpret_cast<char*>(aux),sizeof(casillero));
+        }
+    }
+    else{
+        cerr<<"nel prro";
+    }
+    */
     //GAME LOOP
     while(true){
         *nJugadores=2;
