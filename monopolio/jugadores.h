@@ -5,11 +5,11 @@ using namespace std;
 
 struct jugador{
     int dinero=1500;
-    string nombre;
+    char nombre[100];
     int color;
-    bool carcel;
+    bool carcel=false;
     int contadorCarcel=0;
-    int posicion;
+    int posicion=0;
     int nvueltas=0;
     bool posesiones[40];
     int numeroCasas=0;
