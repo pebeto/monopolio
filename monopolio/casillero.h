@@ -1,6 +1,5 @@
 #ifndef CASILLERO_H_INCLUDED
 #define CASILLERO_H_INCLUDED
-using namespace std;
 
 struct casillero{
     char nombre[100];
