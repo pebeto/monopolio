@@ -1,27 +1,6 @@
 #ifndef FUNCIONESPRINCIPALES_H_INCLUDED
 #define FUNCIONESPRINCIPALES_H_INCLUDED
 
-void ingresarDatosJug(int *_nJugadores, jugador *_players){
-    for(int i=0; i<*_nJugadores; i++){
-        cout<<"Ingresa tu nombre: ";
-        cin>>(*(_players+i)).nombre;
-        cout<<"Ingresa tu color: "<<endl;
-    }
-}
-
-void ingresarNJug(int *_nJugadores){
-    do{
-        cout<<"Ingrese el número de jugadores: (2 min. / 6 max.)";
-        cin>>*_nJugadores;
-    }while(*_nJugadores<=1 || *_nJugadores>6);
-}
-
-void inicioPartida(jugador *_players, casillero *_juego, int *_nJugadores){
-    ingresarNJug(_nJugadores);
-    ingresarDatosJug(_nJugadores, _players);
-    turno(_players,_juego,_nJugadores);
-}
-
 void comprarLugar(jugador *_players, casillero *_juego, int *_nJugadores, int _nJugador){
     fstream _tablero;
     casillero *aux=new casillero;
@@ -164,6 +143,27 @@ void turno(jugador *_players, casillero *_juego, int *_nJugadores){
         if(nJugador==*_nJugadores)
             nJugador=0;
     }
+}
+
+void ingresarDatosJug(int *_nJugadores, jugador *_players){
+    for(int i=0; i<*_nJugadores; i++){
+        cout<<"Ingresa tu nombre: ";
+        cin>>(*(_players+i)).nombre;
+        cout<<"Ingresa tu color: "<<endl;
+    }
+}
+
+void ingresarNJug(int *_nJugadores){
+    do{
+        cout<<"Ingrese el número de jugadores: (2 min. / 6 max.)";
+        cin>>*_nJugadores;
+    }while(*_nJugadores<=1 || *_nJugadores>6);
+}
+
+void inicioPartida(jugador *_players, casillero *_juego, int *_nJugadores){
+    ingresarNJug(_nJugadores);
+    ingresarDatosJug(_nJugadores, _players);
+    turno(_players,_juego,_nJugadores);
 }
 
 #endif // FUNCIONESPRINCIPALES_H_INCLUDED
