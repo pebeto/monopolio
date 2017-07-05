@@ -16,9 +16,10 @@ void ingresarNJug(int *_nJugadores){
     }while(*_nJugadores<=1 || *_nJugadores>6);
 }
 
-void inicioPartida(int *_nJugadores, jugador *_players){
+void inicioPartida(jugador *_players, casillero *_juego, int *_nJugadores){
     ingresarNJug(_nJugadores);
     ingresarDatosJug(_nJugadores, _players);
+    turno(_players,_juego,_nJugadores);
 }
 
 void comprarLugar(jugador *_players, casillero *_juego, int *_nJugadores, int _nJugador){
