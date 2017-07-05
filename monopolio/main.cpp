@@ -104,9 +104,7 @@ int main(){
     */
     //GAME LOOP
     while(true){
-        *nJugadores=2;
-        jugador *players= new jugador[2];
-        turno(players,juego,nJugadores);
+        inicioPartida(players,nJugadores);
     }
     return 0;
 }
