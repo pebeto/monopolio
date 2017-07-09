@@ -95,3 +95,27 @@
 
 1499361663 /home/jose/Documents/PROYECTO T3 FUNPRO/monopolio-master/monopolio-master/monopolio/menu.h
 
+1499597085 source:c:\users\josealberto1\desktop\monopolio-master\monopolio\main.cpp
+	<iostream>
+	<time.h>
+	<stdlib.h>
+	<fstream>
+	"casillero.h"
+	"jugadores.h"
+	"dado.h"
+	"parada.h"
+	"funcionesprincipales.h"
+	"menu.h"
+
+1499590193 c:\users\josealberto1\desktop\monopolio-master\monopolio\casillero.h
+
+1499604333 c:\users\josealberto1\desktop\monopolio-master\monopolio\jugadores.h
+
+1499594270 c:\users\josealberto1\desktop\monopolio-master\monopolio\dado.h
+
+1499604334 c:\users\josealberto1\desktop\monopolio-master\monopolio\parada.h
+
+1499598124 c:\users\josealberto1\desktop\monopolio-master\monopolio\funcionesprincipales.h
+
+1499604334 c:\users\josealberto1\desktop\monopolio-master\monopolio\menu.h
+

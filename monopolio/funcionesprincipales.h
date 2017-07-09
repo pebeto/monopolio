@@ -2,95 +2,116 @@
 #define FUNCIONESPRINCIPALES_H_INCLUDED
 using namespace std;
 
-void comprarLugar(jugador *_players, int *_nJugadores, int _nJugador){
+void comprarLugar(jugador *_players, int *_nJugadores, int _nJugador, casillero *aux){
     int opcion;
-    fstream _tablero;
-    casillero *aux=new casillero;
-    _tablero.open(".\\data\\tableroMOD.txt", ios::out | ios::in | ios::binary);
-    if(_tablero.is_open()){
-        _tablero.seekg(((*(_players+_nJugador)).posicion*sizeof(casillero)),ios::beg);
-        _tablero.read(reinterpret_cast<char*>(aux),sizeof(casillero));
-        cout<<"Deseas comprar la propiedad: "<<aux->nombre<<"? :"<<endl;
-        cout<<"1. SI"<<endl;
-        cout<<"2. NO"<<endl;
-        do{
-        cin>>opcion;
-        }while(opcion!=1 && opcion!=2);
-        switch(opcion){
-        case 1 :
-            aux->propietario=true;
-            aux->numeroDelJugador=_nJugador;
-            (*(_players+_nJugador)).posesiones[(*(_players+_nJugador)).posicion]=true;
-
-            break;
-        case 2 :
-            break;
-        }
-    }
-    else{
-        cerr<<"NO SE ENCONTRO EL ARCHIVO: tablero.txt"<<endl;
+    cout<<"Deseas comprar la propiedad: "<<aux->nombre<<"? :"<<endl;
+    cout<<"1. SI"<<endl;
+    cout<<"2. NO"<<endl;
+    do{
+    cin>>opcion;
+    }while(opcion!=1 && opcion!=2);
+    switch(opcion){
+    case 1 :
+        aux->propietario=true;
+        aux->numeroDelJugador=_nJugador;
+        (*(_players+_nJugador)).posesiones[(*(_players+_nJugador)).posicion]=true;
+        (*(_players+_nJugador)).dinero-=aux->valor;
+        system("cls");
+        cout<<"La propiedad "<<aux->nombre<<"se ha registrado como tuya."<<endl;
+        cout<<"Tu dinero "<<(*(_players+_nJugador)).dinero<<endl;
+        cout<<"Posicion de la propiedad: "<<(*(_players+_nJugador)).posicion<<endl;
         cin.get();
-        exit(0);
+        break;
+    case 2 :
+        break;
     }
-    _tablero.close();
 }
 
 void menuTurno(jugador *_players, int *_nJugadores, int _nJugador){
     int _opcion;
-    fstream _tablero;
+    fstream tablero;
     casillero *aux=new casillero;
-    _tablero.open(".\\data\\tableroMOD.txt", ios::out | ios::in | ios::binary);
-    cout<<"Opciones de casillero: "<<endl;
-    _tablero.seekg(((*(_players+_nJugador)).posicion*sizeof(casillero)),ios::beg);
-    _tablero.read(reinterpret_cast<char*>(aux),sizeof(casillero));
-    if((*(_players+_nJugador)).nvueltas==0){
-        cout<<"Es la primera vuelta :)"<<endl;
-        cin.get();
+    tablero.open(".\\data\\tableroMOD.txt", ios::out | ios::in | ios::binary);
+    tablero.seekg(((*(_players+_nJugador)).posicion*sizeof(casillero)),ios::beg);
+    tablero.read(reinterpret_cast<char*>(aux),sizeof(casillero));
+    if(aux->propietario){ //RENTA
+        if(aux->numeroDelJugador==_nJugador){
+            system("cls");
+            cout<<"Esta es tu propiedad :)"<<endl;
+            cin.get();
+        }
+        else{
+            system("cls");
+            cout<<"Esta no es tu propiedad :("<<endl;
+            cin.get();
+        }
     }
     else{
-        if(!aux->propietario){
-        cout<<"1. COMPRAR LUGAR."<<endl;
-        }
-        cout<<"2. SUBASTAR LUGAR."<<endl;
-        if((*(_players+_nJugador)).posesiones[(*(_players+_nJugador)).posicion])
-            cout<<"3. VENDER LUGAR."<<endl;
-        cout<<"4. SALTAR TURNO."<<endl;
-        do{
-        cout<<"OPCION: ";cin>>_opcion;
-        }while(_opcion<1 || _opcion>5);
-        switch(_opcion){
-        case 1 :
-            system("clear");
-            comprarLugar(_players,_nJugadores,_nJugador);
+        cout<<"Opciones de casillero: "<<endl;
+        if((*(_players+_nJugador)).nvueltas==0){
+            cout<<"Es la primera vuelta :)"<<endl;
             cin.get();
-            break;
-        case 2 :
-            break;
-        case 3 :
-            break;
-        case 4 :
-            break;
+        }
+        else{
+            cout<<"Nombre del casillero: "<<aux->nombre<<endl;
+            cout<<"Color: "<<aux->color<<endl;
+            cout<<"Precio: "<<aux->valor<<"$"<<endl;
+            if(aux->propietario==false){
+            cout<<"1. COMPRAR LUGAR."<<endl;
+            }
+            cout<<"2. SUBASTAR LUGAR."<<endl;
+            cout<<"3. SALTAR TURNO."<<endl;
+            do{
+            cout<<"OPCION: ";cin>>_opcion;
+            }while(_opcion<1 || _opcion>3);
+            switch(_opcion){
+            case 1 :
+                system("cls");
+                comprarLugar(_players,_nJugadores,_nJugador,aux);
+                tablero.write(reinterpret_cast<char*>(aux),sizeof(casillero));
+                cin.get();
+                break;
+            case 2 :
+                break;
+            case 3 :
+                break;
+            }
         }
     }
+    tablero.close();
 }
 
 void mover(jugador *_players,int *_nJugadores, int _nJugador){
-    int cantidadDeMovimientos=dado();
-    if((*(_players+_nJugador)).carcel==false){
-        (*(_players+_nJugador)).posicion+=cantidadDeMovimientos;
-        if((*(_players+_nJugador)).posicion>=40){
-            (*(_players+_nJugador)).posicion-=40;
-            (*(_players+_nJugador)).nvueltas++;
-            (*(_players+_nJugador)).dinero+=200;
-        }
-        for(int i=0; i<*_nJugadores; i++){
-            if((*(_players+i)).carcel==true){
-                if((*(_players+i)).contadorCarcel==3){
-                    (*(_players+i)).carcel=false;
-                    (*(_players+i)).contadorCarcel==0;
-                }
-                else{
-                    (*(_players+i)).contadorCarcel++;
+    int dado1, dado2, intentos=1,cantidadDeMovimientos=0;
+    dado(dado1,dado2,intentos);
+    cantidadDeMovimientos+=dado1+dado2;
+    while(dado1==dado2){
+        dado(dado1,dado2,intentos);
+        cantidadDeMovimientos+=dado1+dado2;
+    }
+    if(intentos>=3 && (*(_players+_nJugador)).nvueltas!=0){
+       cout<<"Haz tirado 3 veces dobles!"<<endl;
+       cantidadDeMovimientos=-1;
+       (*(_players+_nJugador)).posicion=cantidadDeMovimientos;
+       cin.get();
+    }
+    else{
+        if((*(_players+_nJugador)).carcel==false){
+            (*(_players+_nJugador)).posicion+=cantidadDeMovimientos;
+            if((*(_players+_nJugador)).posicion>=40){
+                (*(_players+_nJugador)).posicion-=40;
+                (*(_players+_nJugador)).nvueltas++;
+                (*(_players+_nJugador)).dinero+=200;
+            }
+            for(int i=0; i<*_nJugadores; i++){
+                if((*(_players+i)).carcel==true){
+                    if((*(_players+i)).contadorCarcel==3){
+                        (*(_players+i)).carcel=false;
+                        (*(_players+i)).contadorCarcel==0;
+                    }
+                    else{
+                        (*(_players+i)).contadorCarcel++;
+                    }
                 }
             }
         }
@@ -149,9 +170,10 @@ void mover(jugador *_players,int *_nJugadores, int _nJugador){
         }
         break;
     default :
-        int _opcion;
-        cout<<"Posicion del jugador N°"<<_nJugador+1<<": "<<(*(_players+_nJugador)).posicion+1<<endl;
-        cout<<"Numero de vueltas del jugador N°"<<_nJugador+1<<": "<<(*(_players+_nJugador)).nvueltas<<endl;
+        cout<<"Valor del primer dado: "<<dado1<<endl;
+        cout<<"Valor del segundo dado: "<<dado2<<endl;
+        cout<<"Posicion del jugador N."<<_nJugador+1<<": "<<(*(_players+_nJugador)).posicion+1<<endl;
+        cout<<"Numero de vueltas del jugador N."<<_nJugador+1<<": "<<(*(_players+_nJugador)).nvueltas<<endl;
         menuTurno(_players,_nJugadores,_nJugador);
         break;
     }
@@ -160,8 +182,10 @@ void mover(jugador *_players,int *_nJugadores, int _nJugador){
 void turno(jugador *_players, int *_nJugadores){
     int nJugador=0;
     while(nJugador<*_nJugadores){
-        system("clear");
-        cout<<"TURNO DEL JUGADOR"<<nJugador+1<<endl;
+        system("cls");
+        cout<<"TURNO DEL JUGADOR: "<<(*(_players+nJugador)).nombre<<endl;
+        cout<<"Dinero del jugador:"<<(*(_players+nJugador)).dinero<<endl;
+        cout<<endl;
         mover(_players,_nJugadores,nJugador);
         nJugador++;
         if(nJugador==*_nJugadores)
@@ -172,13 +196,14 @@ void turno(jugador *_players, int *_nJugadores){
 void ingresarDatosJug(int *_nJugadores, jugador *_players){
     for(int i=0; i<*_nJugadores; i++){
         cout<<"Ingresa tu nombre: ";
+        cin.ignore();
         cin>>(*(_players+i)).nombre;
     }
 }
 
 void ingresarNJug(int *_nJugadores){
     do{
-        cout<<"Ingrese el número de jugadores: (2 min. / 6 max.)";
+        cout<<"Ingrese el numero de jugadores: (2 min. / 6 max.)";
         cin>>*_nJugadores;
     }while(*_nJugadores<=1 || *_nJugadores>6);
 }

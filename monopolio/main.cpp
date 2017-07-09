@@ -11,8 +11,6 @@
 using namespace std;
 
 int main(){
-    //TABLERO & DATOS
-    fstream tablero;
     /*
     {"GO!",0,'G',false,-1,0,0}, //n=0 COLOR GO
     {"AVENIDA MEDITERRANEO",60,'M',false,-1,0,0}, //n=1 COLOR MARRON
@@ -84,7 +82,7 @@ int main(){
 
     //VARIABLES PRINCIPALES
     int *nJugadores= new int;
-    srand(time(NULL));
+    srand((unsigned)time(NULL));
     /*
     casillero *aux=new casillero;
 
@@ -102,6 +100,20 @@ int main(){
         cerr<<"nel prro";
     }
     */
+    //COPIA EL ARCHIVO DEL TABLERO ORIGINAL AL MODIFICABLE
+    fstream tablero1;
+    fstream tablero2;
+    casillero *aux=new casillero;
+    tablero1.open(".\\data\\tableroOR.txt", ios::in | ios::binary);
+    tablero2.open(".\\data\\tableroMOD.txt", ios::out | ios::binary);
+    tablero1.read(reinterpret_cast<char*>(aux),sizeof(casillero));
+    while(!tablero1.eof()){
+        tablero2.write(reinterpret_cast<char*>(aux),sizeof(casillero));
+        tablero1.read(reinterpret_cast<char*>(aux),sizeof(casillero));
+    }
+    delete aux;
+    tablero1.close();
+    tablero2.close();
     //GAME LOOP
     while(true){
         inicioPartida(nJugadores);
