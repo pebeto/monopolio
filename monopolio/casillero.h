@@ -3,12 +3,12 @@
 
 struct casillero{
     char nombre[100];
-    int valor;
     char color;
-    bool propietario;
+    int valor;
     int numeroDelJugador;
     int numeroCasas;
     int numeroHoteles;
+    bool propietario;
 };
 
 #endif // CASILLERO_H_INCLUDED

@@ -13,7 +13,7 @@ using namespace std;
 int main(){
     //TABLERO & DATOS
     fstream tablero;
-    casillero juego[40]={
+    /*
     {"GO!",0,'G',false,-1,0,0}, //n=0 COLOR GO
     {"AVENIDA MEDITERRANEO",60,'M',false,-1,0,0}, //n=1 COLOR MARRON
     {"ARCA COMUNAL",0,'A',false,-1,0,0}, //n=2 COLOR ARCA COMUNAL
@@ -55,7 +55,7 @@ int main(){
     {"IMPUESTO SOBRE POSESIONES DE LUJO",0,'I',false,-1,0,0}, //n=38 COLOR IMPUESTO
     {"EL MUELLE",400,'B',false,-1,0,0} //n=39 COLOR AZUL
     };
-
+    */
     /*
     casillero *juegos=new casillero;
     int i=0;
@@ -104,7 +104,8 @@ int main(){
     */
     //GAME LOOP
     while(true){
-        inicioPartida(players,nJugadores);
+        inicioPartida(nJugadores);
     }
+    delete nJugadores;
     return 0;
 }
