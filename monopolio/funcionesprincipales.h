@@ -82,6 +82,7 @@ void menuTurno(jugador *_players, int *_nJugadores, int _nJugador){
 }
 
 void mover(jugador *_players,int *_nJugadores, int _nJugador){
+    //Dado y valores a mover
     int dado1, dado2, intentos=1,cantidadDeMovimientos=0;
     dado(dado1,dado2,intentos);
     cantidadDeMovimientos+=dado1+dado2;
@@ -127,8 +128,23 @@ void mover(jugador *_players,int *_nJugadores, int _nJugador){
             cin.get();
         }
         else{
+            int _opcion;
             cout<<"ESTAS EN LA CARCEL POR 3 TURNOS."<<endl;
-            cin.get();
+            cout<<"Deseas pagar 50$ para salir? (1. SI / 2. NO): "<<endl;
+            do{
+            cin>>_opcion;
+            }while(_opcion!=1 && _opcion !=2);
+            switch(_opcion){
+            case 1 :
+                (*(_players+_nJugador)).dinero-=50;
+                (*(_players+_nJugador)).carcel=false;
+                cout<<"Has pagado satisfactoriamente 50$. "<<endl;
+                cout<<"Estas fuera de la carcel :) "<<endl;
+                cin.get();
+                break;
+            case 2 :
+                break;
+            }
         }
         break;
     case 20 : //PARADA LIBRE
@@ -136,10 +152,26 @@ void mover(jugador *_players,int *_nJugadores, int _nJugador){
         cin.get();
         break;
     case 30 : case -1: //CASO CARCEL
+        int _opcion;
         if(!(*(_players+_nJugador)).nvueltas==0){
         (*(_players+_nJugador)).carcel=true;
         (*(_players+_nJugador)).posicion=10;
         cout<<"CAISTE EN LA CARCEL >:("<<endl;
+        cout<<"Deseas pagar 50$ para salir? (1. SI / 2. NO): "<<endl;
+        do{
+        cin>>_opcion;
+        }while(_opcion!=1 && _opcion !=2);
+        switch(_opcion){
+        case 1 :
+            (*(_players+_nJugador)).dinero-=50;
+            (*(_players+_nJugador)).carcel=false;
+            cout<<"Has pagado satisfactoriamente 50$. "<<endl;
+            cout<<"Estas fuera de la carcel :) "<<endl;
+            cin.get();
+            break;
+        case 2 :
+            break;
+        }
         cin.get();
         }
         break;
@@ -181,6 +213,7 @@ void mover(jugador *_players,int *_nJugadores, int _nJugador){
 
 void turno(jugador *_players, int *_nJugadores){
     int nJugador=0;
+    bool todosCarcel;
     while(nJugador<*_nJugadores){
         system("cls");
         cout<<"TURNO DEL JUGADOR: "<<(*(_players+nJugador)).nombre<<endl;
@@ -195,7 +228,7 @@ void turno(jugador *_players, int *_nJugadores){
 
 void ingresarDatosJug(int *_nJugadores, jugador *_players){
     for(int i=0; i<*_nJugadores; i++){
-        cout<<"Ingresa tu nombre: ";
+        cout<<"Ingresa tu nombre, jugador N."<<i+1<<": ";
         cin.ignore();
         cin>>(*(_players+i)).nombre;
     }
@@ -214,6 +247,7 @@ void inicioPartida(int *_nJugadores){
     ingresarDatosJug(_nJugadores, _players);
     cin.ignore();
     turno(_players,_nJugadores);
+    delete _players;
 }
 
 #endif // FUNCIONESPRINCIPALES_H_INCLUDED

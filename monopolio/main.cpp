@@ -114,6 +114,7 @@ int main(){
     delete aux;
     tablero1.close();
     tablero2.close();
+
     //GAME LOOP
     while(true){
         inicioPartida(nJugadores);
