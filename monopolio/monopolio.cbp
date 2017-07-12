@@ -38,7 +38,7 @@
 		<Unit filename="jugadores.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.h" />
-		<Unit filename="parada.h" />
+		<Unit filename="remplazoarchivo.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
