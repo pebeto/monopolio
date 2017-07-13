@@ -21,7 +21,7 @@
 
 1497335687 /home/jose/Documents/SFML/monopolio/parada.h
 
-1499361133 source:c:\users\sistemas\desktop\monopolio-master\monopolio\main.cpp
+1499823555 source:c:\users\sistemas\desktop\monopolio-master\monopolio\main.cpp
 	<iostream>
 	<time.h>
 	<stdlib.h>
@@ -29,21 +29,21 @@
 	"casillero.h"
 	"jugadores.h"
 	"dado.h"
-	"parada.h"
+	"remplazoarchivo.h"
 	"funcionesprincipales.h"
 	"menu.h"
 
 1497400097 
 
-1499291060 c:\users\sistemas\desktop\monopolio-master\monopolio\casillero.h
+1499823555 c:\users\sistemas\desktop\monopolio-master\monopolio\casillero.h
 
-1499291060 c:\users\sistemas\desktop\monopolio-master\monopolio\jugadores.h
+1499823555 c:\users\sistemas\desktop\monopolio-master\monopolio\jugadores.h
 
 1499291060 c:\users\sistemas\desktop\monopolio-master\monopolio\parada.h
 
-1499291060 c:\users\sistemas\desktop\monopolio-master\monopolio\dado.h
+1499823555 c:\users\sistemas\desktop\monopolio-master\monopolio\dado.h
 
-1499361279 c:\users\sistemas\desktop\monopolio-master\monopolio\funcionesprincipales.h
+1499909670 c:\users\sistemas\desktop\monopolio-master\monopolio\funcionesprincipales.h
 
 1497400097 source:/home/jose/Documents/SFML/monopolio-master/monopolio/main.cpp
 	<iostream>
@@ -69,7 +69,7 @@
 
 1497399443 /home/jose/Documents/SFML/monopolio-master/monopolio/menu.h
 
-1499291060 c:\users\sistemas\desktop\monopolio-master\monopolio\menu.h
+1499823555 c:\users\sistemas\desktop\monopolio-master\monopolio\menu.h
 
 1499361663 source:/home/jose/Documents/PROYECTO T3 FUNPRO/monopolio-master/monopolio-master/monopolio/main.cpp
 	<iostream>
@@ -118,4 +118,6 @@
 1499655243 c:\users\josealberto1\desktop\monopolio-master\monopolio\funcionesprincipales.h
 
 1499604334 c:\users\josealberto1\desktop\monopolio-master\monopolio\menu.h
+
+1499823555 c:\users\sistemas\desktop\monopolio-master\monopolio\remplazoarchivo.h
 

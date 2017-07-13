@@ -17,10 +17,6 @@ void comprarLugar(jugador *_players, int *_nJugadores, int _nJugador, casillero 
         (*(_players+_nJugador)).posesiones[(*(_players+_nJugador)).posicion]=true;
         (*(_players+_nJugador)).dinero-=aux->valor;
         system("cls");
-        cout<<"La propiedad "<<aux->nombre<<"se ha registrado como tuya."<<endl;
-        cout<<"Tu dinero "<<(*(_players+_nJugador)).dinero<<endl;
-        cout<<"Posicion de la propiedad: "<<(*(_players+_nJugador)).posicion<<endl;
-        cin.get();
         break;
     case 2 :
         break;
@@ -38,19 +34,19 @@ void menuTurno(jugador *_players, int *_nJugadores, int _nJugador){
         if(aux->numeroDelJugador==_nJugador){
             system("cls");
             cout<<"Esta es tu propiedad :)"<<endl;
-            cin.get();
+            system("PAUSE");
         }
         else{
             system("cls");
             cout<<"Esta no es tu propiedad :("<<endl;
-            cin.get();
+            system("PAUSE");
         }
     }
     else{
         cout<<"Opciones de casillero: "<<endl;
         if((*(_players+_nJugador)).nvueltas==0){
             cout<<"Es la primera vuelta :)"<<endl;
-            cin.get();
+            system("PAUSE");
         }
         else{
             cout<<"Nombre del casillero: "<<aux->nombre<<endl;
@@ -69,7 +65,10 @@ void menuTurno(jugador *_players, int *_nJugadores, int _nJugador){
                 system("cls");
                 comprarLugar(_players,_nJugadores,_nJugador,aux);
                 tablero.write(reinterpret_cast<char*>(aux),sizeof(casillero));
-                cin.get();
+                cout<<"La propiedad "<<aux->nombre<<"se ha registrado como tuya."<<endl;
+                cout<<"Tu dinero: "<<(*(_players+_nJugador)).dinero<<endl;
+                cout<<"Posicion de la propiedad: "<<(*(_players+_nJugador)).posicion<<endl;
+                system("PAUSE");
                 break;
             case 2 :
                 break;
@@ -84,17 +83,21 @@ void menuTurno(jugador *_players, int *_nJugadores, int _nJugador){
 void mover(jugador *_players,int *_nJugadores, int _nJugador){
     //Dado y valores a mover
     int dado1, dado2, intentos=1,cantidadDeMovimientos=0;
-    dado(dado1,dado2,intentos);
+    dado1= rand()%6+1;
+    dado2= rand()%6+1;
+    intentos++;
     cantidadDeMovimientos+=dado1+dado2;
     while(dado1==dado2){
-        dado(dado1,dado2,intentos);
+        dado1= rand()%6+1;
+        dado2= rand()%6+1;
+        intentos++;
         cantidadDeMovimientos+=dado1+dado2;
     }
     if(intentos>=3 && (*(_players+_nJugador)).nvueltas!=0){
        cout<<"Haz tirado 3 veces dobles!"<<endl;
        cantidadDeMovimientos=-1;
        (*(_players+_nJugador)).posicion=cantidadDeMovimientos;
-       cin.get();
+       system("PAUSE");
     }
     else{
         if((*(_players+_nJugador)).carcel==false){
@@ -120,12 +123,12 @@ void mover(jugador *_players,int *_nJugadores, int _nJugador){
     switch((*(_players+_nJugador)).posicion){
     case 0 :
         cout<<"Caiste en GO! Recibes $200"<<endl;
-        cin.get();
+        system("PAUSE");
         break;
     case 10 : //CASO CARCEL VISITA
         if(!(*(_players+_nJugador)).carcel){
             cout<<"Estas de visita, no te preocupes :)"<<endl;
-            cin.get();
+            system("PAUSE");
         }
         else{
             int _opcion;
@@ -140,7 +143,7 @@ void mover(jugador *_players,int *_nJugadores, int _nJugador){
                 (*(_players+_nJugador)).carcel=false;
                 cout<<"Has pagado satisfactoriamente 50$. "<<endl;
                 cout<<"Estas fuera de la carcel :) "<<endl;
-                cin.get();
+                system("PAUSE");
                 break;
             case 2 :
                 break;
@@ -149,7 +152,7 @@ void mover(jugador *_players,int *_nJugadores, int _nJugador){
         break;
     case 20 : //PARADA LIBRE
         cout<<"PARADA LIBRE"<<endl;
-        cin.get();
+        system("PAUSE");
         break;
     case 30 : case -1: //CASO CARCEL
         int _opcion;
@@ -167,38 +170,38 @@ void mover(jugador *_players,int *_nJugadores, int _nJugador){
             (*(_players+_nJugador)).carcel=false;
             cout<<"Has pagado satisfactoriamente 50$. "<<endl;
             cout<<"Estas fuera de la carcel :) "<<endl;
-            cin.get();
+            system("PAUSE");
             break;
         case 2 :
             break;
         }
-        cin.get();
+        system("PAUSE");
         }
         break;
     case 2 : case 17 : case 33 : //CASO ARCA COMUNAL
         if(!(*(_players+_nJugador)).nvueltas==0){
         cout<<"CAISTE EN ARCA COMUNAL"<<endl;
-        cin.get();
+        system("PAUSE");
         }
         break;
     case 7 : case 22 : case 36 : //CASO CASUALIDAD
         if(!(*(_players+_nJugador)).nvueltas==0){
         cout<<"CAISTE EN CASUALIDAD"<<endl;
-        cin.get();
+        system("PAUSE");
         }
         break;
     case 4 : //CASO IMPUESTO CARO
         if(!(*(_players+_nJugador)).nvueltas==0){
         (*(_players+_nJugador)).dinero-=200;
         cout<<"ACABAS DE PAGAR $200 EN IMPUESTOS."<<endl;
-        cin.get();
+        system("PAUSE");
         }
         break;
     case 38 : //CASO IMPUESTO BARATO
         if(!(*(_players+_nJugador)).nvueltas==0){
         (*(_players+_nJugador)).dinero-=75;
         cout<<"ACABAS DE PAGAR $75 EN IMPUESTOS."<<endl;
-        cin.get();
+        system("PAUSE");
         }
         break;
     default :
