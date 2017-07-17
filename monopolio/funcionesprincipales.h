@@ -2,6 +2,35 @@
 #define FUNCIONESPRINCIPALES_H_INCLUDED
 using namespace std;
 
+void venderLugar(jugador *_players, int *_nJugadores, int _nJugador, casillero *aux){
+    int opcion;
+    cout<<"A que jugador deseas venderle la propiedad "<<aux->nombre<<"?"<<endl;
+    for(int i=0; i<*_nJugadores; i++){
+        if(i!=_nJugador)
+            cout<<"     "<<i+1<<". "<<(*(_players+i)).nombre<<endl;
+    }
+    do{
+        if(opcion-1==_nJugador)
+            cout<<"No puedes vender tu propiedad a ti mismo."<<endl;
+        cin>>opcion;
+    }while(opcion<=0 || opcion>*_nJugadores || opcion-1==_nJugador);
+    switch(opcion-1){
+    case 0 :
+
+        break;
+    case 1 :
+        break;
+    case 2 :
+        break;
+    case 3 :
+        break;
+    case 4 :
+        break;
+    case 5 :
+        break;
+    }
+}
+
 void comprarLugar(jugador *_players, int *_nJugadores, int _nJugador, casillero *aux){
     int opcion;
     cout<<"Deseas comprar la propiedad: "<<aux->nombre<<"? :"<<endl;
@@ -33,13 +62,10 @@ void menuTurno(jugador *_players, int *_nJugadores, int _nJugador){
     if(aux->propietario){ //RENTA
         if(aux->numeroDelJugador==_nJugador){
             system("cls");
-            cout<<"Esta es tu propiedad :)"<<endl;
-            system("PAUSE");
-        }
-        else{
-            system("cls");
-            cout<<"Esta no es tu propiedad :("<<endl;
-            system("PAUSE");
+            cout<<"Opciones de casillero: "<<endl;
+            cout<<"Nombre del casillero: "<<aux->nombre<<endl;
+            cout<<"[Esta es tu propiedad]"<<endl;
+
         }
     }
     else{
@@ -71,6 +97,7 @@ void menuTurno(jugador *_players, int *_nJugadores, int _nJugador){
                 system("PAUSE");
                 break;
             case 2 :
+                venderLugar(_players,_nJugadores,_nJugador,aux);
                 break;
             case 3 :
                 break;
@@ -205,8 +232,10 @@ void mover(jugador *_players,int *_nJugadores, int _nJugador){
         }
         break;
     default :
+        cout<<endl;
         cout<<"Valor del primer dado: "<<dado1<<endl;
         cout<<"Valor del segundo dado: "<<dado2<<endl;
+        cout<<endl;
         cout<<"Posicion del jugador N."<<_nJugador+1<<": "<<(*(_players+_nJugador)).posicion+1<<endl;
         cout<<"Numero de vueltas del jugador N."<<_nJugador+1<<": "<<(*(_players+_nJugador)).nvueltas<<endl;
         menuTurno(_players,_nJugadores,_nJugador);
@@ -216,7 +245,6 @@ void mover(jugador *_players,int *_nJugadores, int _nJugador){
 
 void turno(jugador *_players, int *_nJugadores){
     int nJugador=0;
-    bool todosCarcel;
     while(nJugador<*_nJugadores){
         system("cls");
         cout<<"TURNO DEL JUGADOR: "<<(*(_players+nJugador)).nombre<<endl;

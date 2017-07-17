@@ -95,7 +95,7 @@
 
 1499361663 /home/jose/Documents/PROYECTO T3 FUNPRO/monopolio-master/monopolio-master/monopolio/menu.h
 
-1499653629 source:c:\users\josealberto1\desktop\monopolio-master\monopolio\main.cpp
+1499957368 source:c:\users\josealberto1\desktop\monopolio-master\monopolio\main.cpp
 	<iostream>
 	<time.h>
 	<stdlib.h>
@@ -103,21 +103,23 @@
 	"casillero.h"
 	"jugadores.h"
 	"dado.h"
-	"parada.h"
+	"remplazoarchivo.h"
 	"funcionesprincipales.h"
 	"menu.h"
 
-1499590193 c:\users\josealberto1\desktop\monopolio-master\monopolio\casillero.h
+1499957368 c:\users\josealberto1\desktop\monopolio-master\monopolio\casillero.h
 
-1499604333 c:\users\josealberto1\desktop\monopolio-master\monopolio\jugadores.h
+1499957368 c:\users\josealberto1\desktop\monopolio-master\monopolio\jugadores.h
 
-1499594270 c:\users\josealberto1\desktop\monopolio-master\monopolio\dado.h
+1499957368 c:\users\josealberto1\desktop\monopolio-master\monopolio\dado.h
 
 1499604334 c:\users\josealberto1\desktop\monopolio-master\monopolio\parada.h
 
-1499655243 c:\users\josealberto1\desktop\monopolio-master\monopolio\funcionesprincipales.h
+1500163637 c:\users\josealberto1\desktop\monopolio-master\monopolio\funcionesprincipales.h
 
-1499604334 c:\users\josealberto1\desktop\monopolio-master\monopolio\menu.h
+1499957368 c:\users\josealberto1\desktop\monopolio-master\monopolio\menu.h
 
 1499823555 c:\users\sistemas\desktop\monopolio-master\monopolio\remplazoarchivo.h
+
+1499957368 c:\users\josealberto1\desktop\monopolio-master\monopolio\remplazoarchivo.h
 
