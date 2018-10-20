@@ -2,7 +2,6 @@
 #define FUNCIONESPRINCIPALES_H_INCLUDED
 #include "posiciones.h"
 
-
 using namespace std;
 
 void venderLugar(jugador *_players, int *_nJugadores, int _nJugador, casillero *aux){
