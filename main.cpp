@@ -289,7 +289,6 @@ int menu(const char *titulo, const char *opciones[],int n)
 
 int main ()
 {
-
     CrearMenu();
 }
 
