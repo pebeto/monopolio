@@ -1,2 +1,0 @@
-# monopolio
-Proyecto T3
